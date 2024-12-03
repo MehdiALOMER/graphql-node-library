@@ -1,4 +1,5 @@
 
+const cors = require('cors');
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const { makeExecutableSchema } = require('@graphql-tools/schema');
@@ -19,6 +20,8 @@ const schema = makeExecutableSchema({
 });
 
 const app = express();
+
+app.use(cors());
 
 app.use(
   '/graphql',
